@@ -13,18 +13,18 @@
 
 <title>Where does Chinese development finance go?</title>
 
-<script src="aiddata-china-blog_files/jquery-1.11.3/jquery.min.js"></script>
+<script src="http://tariqkhokhar.com/data/aiddata-china-blog_files/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="aiddata-china-blog_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-<script src="aiddata-china-blog_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="aiddata-china-blog_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="aiddata-china-blog_files/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="aiddata-china-blog_files/navigation-1.1/tabsets.js"></script>
-<script src="aiddata-china-blog_files/navigation-1.1/codefolding.js"></script>
-<link href="aiddata-china-blog_files/highlightjs-1.1/default.css" rel="stylesheet" />
-<script src="aiddata-china-blog_files/highlightjs-1.1/highlight.js"></script>
-<link href="aiddata-china-blog_files/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
-<script src="aiddata-china-blog_files/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="http://tariqkhokhar.com/data/aiddata-china-blog_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="http://tariqkhokhar.com/data/aiddata-china-blog_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="http://tariqkhokhar.com/data/aiddata-china-blog_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="http://tariqkhokhar.com/data/aiddata-china-blog_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="http://tariqkhokhar.com/data/aiddata-china-blog_files/navigation-1.1/tabsets.js"></script>
+<script src="http://tariqkhokhar.com/data/aiddata-china-blog_files/navigation-1.1/codefolding.js"></script>
+<link href="http://tariqkhokhar.com/data/aiddata-china-blog_files/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="http://tariqkhokhar.com/data/aiddata-china-blog_files/highlightjs-1.1/highlight.js"></script>
+<link href="http://tariqkhokhar.com/data/aiddata-china-blog_files/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="http://tariqkhokhar.com/data/aiddata-china-blog_files/pagedtable-1.1/js/pagedtable.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -185,7 +185,7 @@ ggplot(dfp, aes(year,total)) +
   theme(legend.position=&quot;none&quot;, axis.title.x = element_blank()) +
   labs(title=&quot;Chinese Official Finance by Flow Type (2000-2014)&quot;, 
        caption=&quot;Source: AidData. 2017. Global Chinese Official Finance Dataset&quot;)</code></pre>
-<p><img src="aiddata-china-blog_files/figure-html/unnamed-chunk-1-1.png" width="1350" style="display: block; margin: auto;" /></p>
+<p><img src="http://tariqkhokhar.com/data/aiddata-china-blog_files/figure-html/unnamed-chunk-1-1.png" width="1350" style="display: block; margin: auto;" /></p>
 <p>It looks like more Chinese finance is classed as OOF ($216bn in the period above) than ODA ($81bn), and that 2009 is a bit of an outlier. With this dataset, we next can figure out which countries are the top recipients of ODA and OOF, and also which sectors are most financed.</p>
 <p>But first, let’s take advantage of the activity-level breakdown to see what accounts for the spike in 2009. At a guess, it’s going to be some large individual projects coded that year, so let’s look for OOF activities in 2009 which were &gt; $10bn:</p>
 <pre class="r"><code>#Filter out 2009 OOF &gt; 10bn
@@ -287,9 +287,9 @@ OOF &lt;- ggplot(chOOFtop10, aes(x=reorder(recipient_condensed,total),y=total)) 
         axis.title.x = element_blank())
 #Render plots
 ODA</code></pre>
-<p><img src="aiddata-china-blog_files/figure-html/unnamed-chunk-3-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="http://tariqkhokhar.com/data/aiddata-china-blog_files/figure-html/unnamed-chunk-3-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>OOF</code></pre>
-<p><img src="aiddata-china-blog_files/figure-html/unnamed-chunk-3-2.png" width="90%" style="display: block; margin: auto;" /> <br> This again shows the relative difference in size of ODA vs OOF but also has me asking some more questions - what are the Chinese ODA flows to Cuba? When we list them out, it looks like the majority of the $6.7bn figure above is debt forgiveness recorded in 2011.</p>
+<p><img src="http://tariqkhokhar.com/data/aiddata-china-blog_files/figure-html/unnamed-chunk-3-2.png" width="90%" style="display: block; margin: auto;" /> <br> This again shows the relative difference in size of ODA vs OOF but also has me asking some more questions - what are the Chinese ODA flows to Cuba? When we list them out, it looks like the majority of the $6.7bn figure above is debt forgiveness recorded in 2011.</p>
 <pre class="r"><code>#Filter out Cuba ODA over time
 dfc &lt;- chinaData %&gt;%
   filter(recommended_for_research == &quot;TRUE&quot; &amp; recipient_condensed==&#39;Cuba&#39; &amp; flow_class==&#39;ODA-like&#39;) %&gt;%
@@ -390,9 +390,9 @@ oofsectorplot &lt;- ggplot(doof, aes(x=reorder(crs_sector_name,`OOF-like`),y=`OO
         axis.title.x = element_blank())
 
 odasectorplot</code></pre>
-<p><img src="aiddata-china-blog_files/figure-html/unnamed-chunk-5-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="http://tariqkhokhar.com/data/aiddata-china-blog_files/figure-html/unnamed-chunk-5-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>oofsectorplot</code></pre>
-<p><img src="aiddata-china-blog_files/figure-html/unnamed-chunk-5-2.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="http://tariqkhokhar.com/data/aiddata-china-blog_files/figure-html/unnamed-chunk-5-2.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>This exploration shows the kind of information in AidData’s <a href="http://aiddata.org/data/chinese-global-official-finance-dataset">“Chinese Global Official Finance”</a> dataset. While offering only a partial, unofficial look at the country’s bilateral financial flows, it’s a detailed look at the activities of an increasingly prominent donor.</p>
 </div>
 
